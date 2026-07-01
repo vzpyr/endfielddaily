@@ -1,0 +1,7 @@
+services:
+  endfielddaily:
+    build: .
+    image: endfielddaily
+    container_name: endfielddaily
+    env_file: .env
+    restart: unless-stopped
