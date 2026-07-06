@@ -2,10 +2,10 @@
 Automated daily check-in for Arknights:Endfield
 
 ## Features
-- Automates the daily attendance check-in on SKPORT (obviously)
-- Runs continuously, with one initial check-in and regular check-ins daily at 16:01 (UTC)
-- Supports notifications via a Telegram Bot
-- Dockerized for easy deployment
+* Automates the daily attendance check-in on SKPORT (obviously)
+* Runs continuously, with one initial check-in and regular check-ins daily at 16:01 (UTC)
+* Supports notifications via a Telegram Bot
+* Dockerized for easy deployment
 
 ## Prerequisites
 You need to obtain your `ACCOUNT_TOKEN` to use this app.
