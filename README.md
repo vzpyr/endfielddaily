@@ -19,7 +19,7 @@ You need to obtain your `ACCOUNT_TOKEN` to use this app.
 4. Locate the cookie named `ACCOUNT_TOKEN` and copy it 1:1. This is the token you will use in your configuration.
 
 ## Configuration
-Copy `.env.example` to `.env` in the root directory and fill it (or pass it as environment variables):
+Copy `.env.example` to `.env` in the root directory and fill it (or pass environment variables):
 ```
 # required
 ACCOUNT_TOKEN=
