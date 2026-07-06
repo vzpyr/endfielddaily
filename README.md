@@ -52,6 +52,6 @@ docker run -d --name endfielddaily --env-file .env --restart unless-stopped endf
 ### Method 3: Docker Compose
 1. Edit the docker-compose.yml (optional)
 2. Start the container:
-   ```bash
-   docker compose up -d
-   ```
+```
+docker compose up -d
+```
