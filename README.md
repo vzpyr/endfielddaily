@@ -1,57 +1,52 @@
-# endfielddaily
-Automated daily check-in for Arknights:Endfield
+# Endfield Daily
+
+Automated daily check-in daemon for _Arknights: Endfield_ on SKPORT
 
 ## Features
-* Automates the daily attendance check-in on SKPORT (obviously)
-* Runs continuously, with one initial check-in and regular check-ins daily at 16:01 (UTC)
-* Supports notifications via a Telegram Bot
-* Dockerized for easy deployment
 
-## Prerequisites
-You need to obtain your `ACCOUNT_TOKEN` to use this app.
-
-### How to extract the token:
-1. Go to the [Endfield Sign-in page](https://game.skport.com/endfield/sign-in) and log in.
-2. Open your browser's Developer Tools (press `F12` or right-click and select **Inspect**).
-3. Navigate to the cookie storage:
-* **Chrome:** Go to the **Application** tab, expand **Cookies** in the left panel, and click on `https://game.skport.com`.
-* **Firefox:** Go to the **Storage** tab, expand **Cookies** in the left panel, and click on `https://game.skport.com`.
-4. Locate the cookie named `ACCOUNT_TOKEN` and copy it 1:1. This is the token you will use in your configuration.
+- Automates daily attendance check-ins on SKPORT
+- Runs continuously: initial check-in on startup, then daily at 16:01 UTC
+- Supports optional Telegram bot notifications on success or failure
+- Dockerized for easy deployment
 
 ## Configuration
-Copy `.env.example` to `.env` in the root directory and fill it (or pass environment variables):
-```
-# required
-ACCOUNT_TOKEN=
-# optional
+
+### Extracting Token
+
+1. Go to the [Endfield sign-in page](https://game.skport.com/endfield/sign-in) and log in
+2. Open Developer Tools (`F12`) → **Application** (or **Storage**) → **Cookies** → `https://game.skport.com`
+3. Copy the value of the `ACCOUNT_TOKEN` cookie
+
+### Environment Variables
+
+Copy `.env.example` to `.env` and fill in your credentials:
+
+```env
+# Required
+ACCOUNT_TOKEN=your_token_here
+
+# Optional (Telegram Notifications)
 TELEGRAM_BOT_TOKEN=
 TELEGRAM_CHAT_ID=
 ```
 
-## How to Use
-### Method 1: Python
-1. Install requirements:
+## Deployment
+
+### Docker (Recommended)
+
+```bash
+docker compose up -d
 ```
+
+### From Source
+
+Requires Python 3.10+ and pip:
+
+```bash
 pip install python-dotenv schedule curl_cffi
-```
-2. Run the script:
-```
 python endfielddaily.py
 ```
 
-### Method 2: Docker
-1. Build the Docker image:
-```
-docker build -t endfielddaily .
-```
-2. Run the container:
-```
-docker run -d --name endfielddaily --env-file .env --restart unless-stopped endfielddaily
-```
+## License
 
-### Method 3: Docker Compose
-1. Edit the docker-compose.yml (optional)
-2. Start the container:
-```
-docker compose up -d
-```
+MIT
