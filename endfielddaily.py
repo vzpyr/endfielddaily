@@ -16,8 +16,8 @@ time.tzset()
 load_dotenv()
 
 ACCOUNT_TOKEN = urllib.parse.unquote(os.getenv("ACCOUNT_TOKEN", "").strip().strip('"\''))
-TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
-TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
+TG_BOT_TOKEN = os.getenv("TG_BOT_TOKEN")
+TG_CHAT_ID = os.getenv("TG_CHAT_ID")
 
 if not ACCOUNT_TOKEN:
     print("Error: No ACCOUNT_TOKEN set in .env")
@@ -45,11 +45,11 @@ def send(url, method="get", headers=None, data=None):
     return resp.json()
 
 def telegram_msg(text):
-    if TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID:
+    if TG_BOT_TOKEN and TG_CHAT_ID:
         try:
             resp = requests.post(
-                f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage",
-                json={"chat_id": TELEGRAM_CHAT_ID, "text": text, "parse_mode": "HTML"}
+                f"https://api.telegram.org/bot{TG_BOT_TOKEN}/sendMessage",
+                json={"chat_id": TG_CHAT_ID, "text": text, "parse_mode": "HTML"}
             )
             resp.raise_for_status()
         except Exception as e:

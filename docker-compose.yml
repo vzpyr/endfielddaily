@@ -4,4 +4,10 @@ services:
     image: endfielddaily
     container_name: endfielddaily
     env_file: .env
+    init: true
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
     restart: unless-stopped
