@@ -35,7 +35,7 @@ TELEGRAM_CHAT_ID=
 ### Docker (Recommended)
 
 ```bash
-docker compose up -d
+docker compose up -d --build
 ```
 
 ### From Source
