@@ -22,10 +22,9 @@ Automated daily check-in daemon for _Arknights: Endfield_ on SKPORT
 Copy `.env.example` to `.env` and fill in your credentials:
 
 ```env
-# Required
-ACCOUNT_TOKEN=your_token_here
+ACCOUNT_TOKEN=
 
-# Optional (Telegram Notifications)
+# optional
 TELEGRAM_BOT_TOKEN=
 TELEGRAM_CHAT_ID=
 ```

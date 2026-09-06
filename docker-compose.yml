@@ -4,6 +4,8 @@ services:
     image: endfielddaily
     container_name: endfielddaily
     env_file: .env
+    tmpfs:
+      - /tmp
     init: true
     read_only: true
     security_opt:
