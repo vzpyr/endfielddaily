@@ -34,6 +34,7 @@ TELEGRAM_CHAT_ID=
 ### Docker (Recommended)
 
 ```bash
+cp .env.example .env
 docker compose up -d --build
 ```
 
